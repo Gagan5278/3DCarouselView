@@ -28,3 +28,7 @@ Open your view controller where you want to add Carousel paste following. Note t
 
 ## App in Action
 ![CarousalView](https://user-images.githubusercontent.com/2304583/94064175-952a3500-fde9-11ea-8ca3-cfc424027d06.gif)
+
+
+### Screenhot
+<img width="435" alt="Screen Shot 2020-09-23 at 10 07 44 PM" src="https://user-images.githubusercontent.com/2304583/94064224-a4a97e00-fde9-11ea-9306-b87b747db6a7.png">
