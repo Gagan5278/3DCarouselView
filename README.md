@@ -3,7 +3,7 @@ Creating 3D CarouselView with the help of CALayer and CATransformLayer
 
 ## How to use
 Drag and drop '3DCarouselView' folder in your app folder.
-Open your view controller where you want to add Carousel paste following. Note that we have to suuply an array of UIImage.
+Open your view controller where you want to add Carousel and paste following. *Note* that we have to suuply an array of UIImage.
 
     var  threeDCarouselView: ThreeDCarouselView! = nil
     //MARK:- View Controller life cycle
