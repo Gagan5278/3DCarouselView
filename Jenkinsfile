@@ -26,7 +26,7 @@ pipeline {
                     thinning: '',
                     buildIpa: true,
                     xcodeProjectFile: '/Users/gavishal/.jenkins/workspace/Money/3DCarousel/3DCarousel.xcodeproj',
-                    xcodeSchema: '',
+                    xcodeSchema: '3DCarousel',
                     xcodeWorkspaceFile: '',
                     xcodebuildArguments: ''
             }
