@@ -22,11 +22,11 @@ pipeline {
                     provisioningProfiles: [[provisioningProfileAppId: '', provisioningProfileUUID: '']],
                     sdk: '',
                     symRoot: '',
-                    target: 'PreProd',
+                    target: '3DCarousel',
                     thinning: '',
                     buildIpa: true,
                     xcodeProjectFile: '/Users/gavishal/.jenkins/workspace/Money/3DCarousel/3DCarousel.xcodeproj',
-                    xcodeSchema: 'PreProd',
+                    xcodeSchema: '',
                     xcodeWorkspaceFile: '',
                     xcodebuildArguments: ''
             }
