@@ -1,23 +1,12 @@
 pipeline {
-   agent any
-
-   stages {
-      stage('Checkout') {
-         steps {
-        checkout([
-            $class: 'GitSCM',
-            branches: [[name: '*/master']],
-            doGenerateSubmoduleConfigurations: false,
-            extensions: [], submoduleCfg: []
-        ])
-         }
-      }
-        stage('Build') {
-            steps {
+    agent any 
+    stages {
+        stage('Example Build') {
+               steps {
                 xcodeBuild appURL: '',
                     assetPackManifestURL: '',
                     buildDir: '',
-                    bundleID: 'za.co.momentum.multiply.money',
+                    bundleID: '<App_Bundle_ID>',
                     cfBundleShortVersionStringValue: '',
                     cfBundleVersionValue: '',
                     changeBundleID: false,
@@ -42,15 +31,10 @@ pipeline {
                     xcodebuildArguments: ''
             }
         }
-        stage('Archive') {
+        stage('Example Test') {
             steps {
-                archiveArtifacts 'build/Release-iphoneos/PreProd.ipa'
+                echo 'Hello, JDK'
             }
         }
-        stage('Deploy') {
-            steps {
-               // sh 'cd /Applications/Transporter.app/Contents/Frameworks/ITunesServices.framework/Versions/A/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/ \n xcrun altool --upload-app -f "/Users/gavishal/.jenkins/workspace/MomentumApp/build/Release-iphoneos/PreProd.ipa" -u gagan5278@gmail.com -p Devi_Asha123'
-            }
-        }
-   }
+    }
 }
