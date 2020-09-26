@@ -25,7 +25,7 @@ pipeline {
                     target: 'PreProd',
                     thinning: '',
                     buildIpa: true,
-                    xcodeProjectFile: '/Users/gavishal/.jenkins/workspace/Money/3DCarousel',
+                    xcodeProjectFile: '/Users/gavishal/.jenkins/workspace/Money/3DCarousel/3DCarousel.xcodeproj',
                     xcodeSchema: 'PreProd',
                     xcodeWorkspaceFile: '',
                     xcodebuildArguments: ''
