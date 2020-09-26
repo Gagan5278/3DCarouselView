@@ -27,7 +27,7 @@ pipeline {
                     buildIpa: true,
                     xcodeProjectFile: '',
                     xcodeSchema: 'PreProd',
-                    xcodeWorkspaceFile: '/Users/gavishal/.jenkins/workspace/Path',
+                    xcodeWorkspaceFile: '/Users/gavishal/.jenkins/workspace/Money',
                     xcodebuildArguments: ''
             }
         }
