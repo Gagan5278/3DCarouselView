@@ -30,7 +30,7 @@ pipeline {
                     thinning: '', 
                     useLegacyBuildSystem: true, 
                     xcodeProjectFile: '', 
-                    xcodeProjectPath: '/Users/gavishal/.jenkins/workspace/Money', 
+                    xcodeProjectPath: '', 
                     xcodeSchema: '', 
                     xcodeWorkspaceFile: '',
                     xcodebuildArguments: ''
