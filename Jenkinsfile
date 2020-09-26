@@ -1,45 +1,56 @@
 pipeline {
-    agent any 
-    stages {
-        stage('Example Build') {
+   agent any
+
+   stages {
+      stage('Checkout') {
+         steps {
+        checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/master']],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [], submoduleCfg: []
+        ])
+         }
+      }
+        stage('Build') {
             steps {
                 xcodeBuild appURL: '',
-                 assetPackManifestURL: '',
-                  buildDir: '', 
-                  bundleID: '', 
-                  bundleIDInfoPlistPath: '', 
-                  cfBundleShortVersionStringValue: '',
-                   cfBundleVersionValue: '', 
-                   cleanBeforeBuild: false, 
-                   cleanResultBundlePath: false, 
-                   configuration: 'Release', 
-                   developmentTeamID: '6V63C69JJF', 
-                   developmentTeamName: 'MMApple', 
-                   displayImageURL: '',
-                   fullSizeImageURL: '', 
-                   ipaExportMethod: 'development',
-                   ipaName: '3DAppJenkins',
-                  ipaOutputDirectory: '/Users/gavishal/Desktop/GIT/3DCarouselView',
-                   logfileOutputDirectory: '', 
-                   provisioningProfiles: [[provisioningProfileAppId: '', provisioningProfileUUID: '']],
-                    resultBundlePath: '', 
-                    sdk: '', 
-                    signingMethod: 'readFromProject', 
-                    symRoot: '', 
-                    target: '', 
-                    thinning: '', 
-                    useLegacyBuildSystem: true, 
-                    xcodeProjectFile: '', 
-                    xcodeProjectPath: '', 
-                    xcodeSchema: '', 
-                    xcodeWorkspaceFile: '',
+                    assetPackManifestURL: '',
+                    buildDir: '',
+                    bundleID: 'za.co.momentum.multiply.money',
+                    cfBundleShortVersionStringValue: '',
+                    cfBundleVersionValue: '',
+                    changeBundleID: false,
+                    configuration: 'Release',
+                    developmentTeamID: '<Team_ID>',
+                    developmentTeamName: '',
+                    displayImageURL: '',
+                    fullSizeImageURL: '',
+                    ipaExportMethod: 'development',
+                    ipaName: 'PreProd',
+                    ipaOutputDirectory: '',
+                    logfileOutputDirectory: '',
+                    provisioningProfiles: [[provisioningProfileAppId: '', provisioningProfileUUID: '']],
+                    sdk: '',
+                    symRoot: '',
+                    target: 'PreProd',
+                    thinning: '',
+                    buildIpa: true,
+                    xcodeProjectFile: '',
+                    xcodeSchema: 'PreProd',
+                    xcodeWorkspaceFile: '/Users/gavishal/.jenkins/workspace/Path',
                     xcodebuildArguments: ''
             }
         }
-        stage('Example Test') {
+        stage('Archive') {
             steps {
-                echo 'Hello, JDK'
+                archiveArtifacts 'build/Release-iphoneos/PreProd.ipa'
             }
         }
-    }
+        stage('Deploy') {
+            steps {
+               // sh 'cd /Applications/Transporter.app/Contents/Frameworks/ITunesServices.framework/Versions/A/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/ \n xcrun altool --upload-app -f "/Users/gavishal/.jenkins/workspace/MomentumApp/build/Release-iphoneos/PreProd.ipa" -u gagan5278@gmail.com -p Devi_Asha123'
+            }
+        }
+   }
 }
